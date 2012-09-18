@@ -80,8 +80,7 @@ describe 'mysql' do
       content.should == false
     end
     it 'should keep a firewall rule' do
-      content = catalogue.resource('firewall', 'mysql_tcp_42').send(:parameters)[:enable]
-      content.should == true
+      should contain_firewall('mysql_tcp_42').with_enable('true')
     end
   end
 
