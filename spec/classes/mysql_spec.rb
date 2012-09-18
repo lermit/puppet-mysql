@@ -189,8 +189,7 @@ describe 'mysql' do
     let(:params) { { :port => '42' } }
 
     it 'should honour top scope global vars' do
-      content = catalogue.resource('monitor::process', 'mysql_process').send(:parameters)[:enable]
-      content.should == true
+      should content_monitor__process('mysql_process').with_enable("true")
     end
   end
 
